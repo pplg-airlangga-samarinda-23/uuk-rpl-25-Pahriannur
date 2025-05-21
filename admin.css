@@ -1,0 +1,48 @@
+body {
+    background-color: white;
+}
+
+.header {
+    background-color: #6b46c1; /* Warna ungu */
+    color: black;
+    text-align: center;
+    font-size: 1.125rem; /* Ukuran font lg */
+    padding: 0.75rem; /* Padding atas dan bawah */
+    font-family: sans-serif;
+}
+
+.main-content {
+    padding: 1.5rem; /* Padding utama */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 3rem; /* Margin bawah */
+    max-width: 28rem; /* Max width sesuai dengan Tailwind's max-w-md */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: #6b46c1; /* Warna ungu */
+    color: black;
+    padding: 1rem 2rem; /* Padding tombol */
+    font-size: 0.75rem; /* Ukuran font xs */
+    font-family: sans-serif;
+    margin: 0 0.5rem; /* Add margin between buttons */
+}
+
+.info-section {
+    background-color: #6b46c1; /* Warna ungu */
+    color: black;
+    text-align: center;
+    font-family: sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 28rem; /* Max width sesuai dengan Tailwind's max-w-md */
+    height: 16rem; /* Tinggi sesuai dengan Tailwind's h-64 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

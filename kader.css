@@ -1,0 +1,48 @@
+@import url('https://cdn.tailwindcss.com');
+
+.bg-white {
+    background-color: white;
+}
+
+.header {
+    background-color: #6b46c1; /* Tailwind's purple-800 */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px; /* Full circle */
+    background-color: black;
+}
+
+.title {
+    color: black;
+    font-size: 1.5rem; /* Tailwind's text-2xl */
+    font-weight: 400; /* Tailwind's font-normal */
+}
+
+.main {
+    padding: 1rem;
+    gap: 1.5rem; /* Space between buttons */
+    justify-items: center;
+}
+
+.button {
+    width: 100%;
+    background-color: #6b46c1; /* Tailwind's purple-800 */
+    color: white;
+    font-size: 0.75rem; /* Tailwind's text-xs */
+    padding: 1.5rem 0; /* Tailwind's py-6 */
+    text-align: center;
+
+}
+
+.footer {
+    height: 0.25rem; /* Tailwind's h-1 */
+    background-color: #6b46c1; /* Tailwind's purple-800 */
+    width: 100%;
+}

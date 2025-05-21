@@ -1,0 +1,91 @@
+.lingkaran {
+    width: 100px;
+    height: 100px;
+    background: #1095d2;
+    border-radius: 100%;
+    position: absolute;
+    top: 20% ; /* Kurangi nilai ini untuk menggeser ke atas */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    min-height: 100vh;
+    background-color: #f3f4f6; /* Tailwind bg-gray-100 equivalent */
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 24rem;
+    justify-content: center;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    background: #bbf7d0; /* Tailwind bg-green-200 equivalent */
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    color: #4b5563; /* Tailwind text-gray-700 equivalent */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d1d5db; /* Tailwind border-gray-300 equivalent */
+    border-radius: 0.375rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    color: #374151; /* Tailwind text-gray-700 equivalent */
+    outline: none;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.5); /* Tailwind focus:ring-green-500 equivalent */
+    border-color: #34d399; /* Tailwind border-green-300 equivalent */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+
+.button-group button {
+    background: #bbf7d0; /* Tailwind bg-green-200 equivalent */
+    color: #374151; /* Tailwind text-gray-700 equivalent */
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button-group button:hover {
+    background: #86efac; /* Tailwind hover:bg-green-300 equivalent */
+}
+
+.button-group button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.5); /* Tailwind focus:ring-green-500 equivalent */
+}
+
