@@ -1,63 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="login.css">
-</head>
-<body>
 <?php
 session_start();
-include 'koneksi.php'; 
+$koneksi = new mysqli("localhost", "root", "", "posyandu_pahri");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
-    $role = $_POST['role'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    $query = "SELECT * FROM `admin` WHERE username = '$username' AND `password` = '$password' AND `role` = '$role'";
-    $result = mysqli_query($koneksi, $query); 
+    $stmt = $koneksi->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if (mysqli_num_rows($result) == 1) {
-        $user = mysqli_fetch_assoc($result);
-        $_SESSION['id_user'] = $user['id_user'];
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
 
-        if ($user['role'] == 'admin') {
-            header("location:admin.php");
-            exit(); 
+        if ($user['role'] === 'admin') {
+            header("Location: admin.php");
         } else {
             header("Location: kader.php");
-            exit(); 
         }
+        exit;
     } else {
-        echo "<p>silakann</p>"; 
+        $error = "Username atau password salah!";
     }
 }
 ?>
-  <div class="container">
-    <div class="avatar"></div>
-    <form method="POST" action="">
-        <div class="input-group">
-            <label for="username">Username</label>
-            <input id="username" name="username" type="text" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Password" required>
-        </div>
-        <div class="input-group">
-            <label for="role">Role</label>
-            <select id="role" name="role" required>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Posyandu</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login Posyandu</h2>
+        <?php if (!empty($error)): ?>
+            <div class="error"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+        <form method="POST">
+            <select name="role" required>
+                <option value="" disabled selected>Pilih Role</option>
                 <option value="admin">Admin</option>
                 <option value="kader">Kader</option>
             </select>
-        </div>
-        <div class="button-group">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
-        </div>
-    </form>
-  </div>
+        </form>
+    </div>
 </body>
 </html>

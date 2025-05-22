@@ -12,8 +12,9 @@
         <h1 class="title">kader posyandu</h1>
     </header>
      <div class="button-group">
-      <button class="button" onclick="location.href='admin.php'">data bayi</button>
-      <button class="button" onclick="location.href='kader.php'">tambah </button>
+      <button class="button" onclick="location.href='data.php'">data bayi</button>
+      <button class="button" onclick="location.href='tambah.php'">tambah </button>
+      <button class="button" onclick="location.href='login.php'">logout </button>
     </div>
 
     <footer class="footer"></footer>
